@@ -11,6 +11,10 @@ jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
+    container:                # All the below can run on the runner as is. But we're defining a container now,
+      image: node:16          # and therefore all the below steps will be ruin in this container
+      env:
+        CONTAINER_KEY: CONTAINER_VALUE
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv
       MONGODB_CLUSTER_ADDRESS: cluster0.ntrwp.mongodb.net
