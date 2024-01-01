@@ -17,10 +17,10 @@ jobs:
         CONTAINER_KEY: CONTAINER_VALUE
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_CLUSTER_ADDRESS: mongodb                      # Uses the label as specified on line 25. Network overlay is created automatically by GitHub actions
-      MONGODB_USERNAME: root                                # For the services container, this should be root / example
-      MONGODB_PASSWORD: example                             # Not explained properly how to use this / shift between example credentials and real life credentials
-      PORT: 8080
+      MONGODB_CLUSTER_ADDRESS: mongodb                      # Uses the label as specified on line 25. Network overlay is created automatically by GitHub actions, 
+      MONGODB_USERNAME: root                                # but only when using a container as spoecified on line 14. This will not work when running directly on the runner!
+      MONGODB_PASSWORD: example                             # For the services container, the credentials should be root / example
+      PORT: 8080                                            # Not explained properly how to use this / shift between example credentials and real life credentials
     services:
       mongodb:
         image: mongo
